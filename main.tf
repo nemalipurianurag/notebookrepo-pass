@@ -23,7 +23,7 @@ output "number" {
 
 # Custom Service Account
 resource "google_service_account" "custom_sa" {
-  account_id   = "custom-sa01"
+  account_id   = "custom-sa02"
   display_name = "Custom Service Account"
   project      = var.project_id
 }
