@@ -23,20 +23,20 @@ output "number" {
 
 # Custom Service Account
 resource "google_service_account" "custom_sa" {
-  account_id   = "custom-sa02"
+  account_id   = "custom-sa04"
   display_name = "Custom Service Account"
   project      = var.project_id
 }
 
 resource "google_kms_key_ring" "example-keyring" {
-  name     = "keyring-example1003"
+  name     = "keyring-example1004"
   location = "us-central1"
   depends_on = [
     google_project_service.apis
   ]
 }
 resource "google_kms_crypto_key" "secrets" {
-  name     = "key1003"
+  name     = "key1004"
   key_ring = google_kms_key_ring.example-keyring.id
 }
 
@@ -59,7 +59,7 @@ resource "google_kms_crypto_key_iam_member" "service_identity_compute_iam_crypto
 
 resource "google_notebooks_instance" "instance" {
   project  = data.google_project.project.project_id
-  name     = "notebook-instance03"
+  name     = "notebook-instance04"
   location = "us-central1-a"
   service_account = google_service_account.custom_sa.email
   no_public_ip    = true
